@@ -9,6 +9,7 @@ import {
   deleteHandler,
   listHandler,
   randomHandler,
+  subscriptionHandler,
 } from './handlers/index.js';
 import {
   PUBLIC_PATH,
@@ -30,6 +31,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.get(ROUTES.WEB.HOME, homeHandler);
 app.get(ROUTES.WEB.IMAGE, getHandler);
 app.post(ROUTES.WEB.IMAGE, postHandler);
+app.get(ROUTES.WEB.SUBSCRIPTION, subscriptionHandler);
 
 // API Routes
 app.get(ROUTES.API.LIST, listHandler);

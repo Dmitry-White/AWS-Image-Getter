@@ -50,12 +50,14 @@ const MESSAGES = {
 
 const VIEWS = {
   INDEX: 'index',
+  SUBSCRIPTION: 'subscription'
 };
 
 const ROUTES = {
   WEB: {
     HOME: '/',
     IMAGE: '/web',
+    SUBSCRIPTION: '/web/subscription',
   },
   API: {
     LIST: '/api/list',

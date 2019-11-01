@@ -1,0 +1,34 @@
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+  <title>AWS Image Serice</title>
+</head>
+
+<body>
+  <main class="container">
+    <h1>AWS Image Service</h1>
+
+    <section>
+      <h2>Subscribe/Unsubscribe</h2>
+      <p>Enter your email to subscribe for notifications about new image uploads.</p>
+      <p>In case you've already been subscribed, you will stop receive the notifications and become unsubscribed.</p>
+      <form action="/web/subscription" method='POST' enctype="multipart/form-data">
+        <div class="input-field">
+          <input id="email_field" name="email" type="email" class="validate">
+          <label for="email_field">Your email</label>
+        </div>
+        <button class='btn' type="submit">Update Subscription</button>
+        <%= typeof subscribeMessage != 'undefined' ? subscribeMessage : '' %>
+      </form>
+    </section>
+
+  </main>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+</body>
+
+</html>

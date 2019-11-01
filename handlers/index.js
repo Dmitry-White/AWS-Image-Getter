@@ -4,6 +4,7 @@ import postHandler from './postHandler.js';
 import listHandler from './listHandler.js';
 import randomHandler from './randomHandler.js';
 import deleteHandler from './deleteHandler.js';
+import subscriptionHandler from './subscriptionHandler.js'
 
 export {
   homeHandler,
@@ -12,4 +13,5 @@ export {
   listHandler,
   randomHandler,
   deleteHandler,
+  subscriptionHandler,
 };
