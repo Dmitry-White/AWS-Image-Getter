@@ -1,17 +1,17 @@
-import homeHandler from './homeHandler.js'
+import homePageHandler from './homePageHandler.js';
+import subscriptionPageHandler from './subscriptionPageHandler.js';
 import getHandler from './getHandler.js';
 import postHandler from './postHandler.js';
 import listHandler from './listHandler.js';
 import randomHandler from './randomHandler.js';
 import deleteHandler from './deleteHandler.js';
-import subscriptionHandler from './subscriptionHandler.js'
 
 export {
-  homeHandler,
+  homePageHandler,
+  subscriptionPageHandler,
   getHandler,
   postHandler,
   listHandler,
   randomHandler,
   deleteHandler,
-  subscriptionHandler,
 };

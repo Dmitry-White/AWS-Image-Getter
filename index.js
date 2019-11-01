@@ -3,13 +3,13 @@ import morgan from 'morgan';
 import bodyParser from 'body-parser';
 
 import {
-  homeHandler,
+  homePageHandler,
   getHandler,
   postHandler,
   deleteHandler,
   listHandler,
   randomHandler,
-  subscriptionHandler,
+  subscriptionPageHandler,
 } from './handlers/index.js';
 import {
   PUBLIC_PATH,
@@ -28,10 +28,10 @@ app.use(express.static(PUBLIC_PATH));
 app.use(bodyParser.urlencoded({ extended: true }));
 
 // Web Routes
-app.get(ROUTES.WEB.HOME, homeHandler);
+app.get(ROUTES.WEB.HOME, homePageHandler);
 app.get(ROUTES.WEB.IMAGE, getHandler);
 app.post(ROUTES.WEB.IMAGE, postHandler);
-app.get(ROUTES.WEB.SUBSCRIPTION, subscriptionHandler);
+app.get(ROUTES.WEB.SUBSCRIPTION, subscriptionPageHandler);
 
 // API Routes
 app.get(ROUTES.API.LIST, listHandler);
