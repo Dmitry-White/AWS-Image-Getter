@@ -1,3 +1,3 @@
-const getSpecificImage = () => 'Specific';
+const getSpecificImage = () => 'aws.png';
 
 export default getSpecificImage;

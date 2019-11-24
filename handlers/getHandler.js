@@ -4,10 +4,10 @@ const getHandler = (req, res) => {
   const param = req.params.name;
   if (param === 'random') {
     const image = getRandomImage();
-    res.send(`${image} Image!`);
+    res.sendFile(image, { root: './assets' });
   } else {
     const image = getSpecificImage();
-    res.send(`${image} Image!`);
+    res.sendFile(image, { root: './assets' });
   }
 };
 
