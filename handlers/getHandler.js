@@ -1,9 +1,13 @@
+import { getSpecificImage, getRandomImage } from '../services/index.js';
+
 const getHandler = (req, res) => {
   const param = req.params.name;
   if (param === 'random') {
-    res.send('Random Image!');
+    const image = getRandomImage();
+    res.send(`${image} Image!`);
   } else {
-    res.send(`${param} Image!`);
+    const image = getSpecificImage();
+    res.send(`${image} Image!`);
   }
 };
 
