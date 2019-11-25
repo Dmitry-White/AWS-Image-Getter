@@ -1,8 +1,8 @@
+import { uploadImage } from '../services/index.js'
+
 const postHandler = (req, res) => {
-  const image = req.files;
-  const imageBody = req.body;
-  console.log(image);
-  console.log(imageBody);
+  uploadImage(req, res);
+  
   res.send('Image Uploaded');
 };
 

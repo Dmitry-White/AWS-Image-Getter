@@ -18,11 +18,12 @@
           <label for="image_dowload">Image Name</label>
         </div>
         <button class='btn' type="submit">Download</button>
+        <%= typeof downloadedMessage != 'undefined' ? downloadedMessage : '' %>
       </form>
     </section>
     <section>
       <h1>Image Upload</h1>
-      <form action="/upload" method='POST'>
+      <form action="/upload" method='POST' enctype="multipart/form-data">
         <div class="file-field input-field">
           <div class="btn grey">
             <span>File</span>
@@ -33,6 +34,7 @@
           </div>
         </div>
         <button class='btn' type="submit">Upload</button>
+        <%= typeof uploadedMessage != 'undefined' ? uploadedMessage : '' %>
       </form>
     </section>
 
