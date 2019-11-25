@@ -4,6 +4,6 @@ const postHandler = (req, res) => {
   console.log(image);
   console.log(imageBody);
   res.send('Image Uploaded');
-}
+};
 
 export default postHandler;

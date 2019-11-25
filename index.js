@@ -5,10 +5,13 @@ import multer from 'multer';
 import { getHandler, postHandler } from './handlers/index.js';
 
 const PORT = 3000;
+
 const app = express();
-const upload = multer({ dest: 'assets/' });
 
 app.use(morgan('dev'));
+app.use(express.static('public'));
+
+const upload = multer({ dest: 'public/images/' });
 
 app.get('/:name', getHandler);
 app.post('/', upload.any(), postHandler);
