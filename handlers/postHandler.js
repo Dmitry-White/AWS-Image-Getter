@@ -1,14 +1,19 @@
-import { uploadImage } from '../services/index.js'
+import { uploadImage } from '../services/index.js';
 
 const postHandler = (req, res) => {
   uploadImage(req, res, (err) => {
-    if(err) {
-      res.render('index', {
-        uploadedMessage: err
-      });
+    if (err) {
+      const templateVariables = {
+        uploadedMessage: err,
+      };
+
+      console.log(templateVariables);
+      res.render('index', templateVariables);
     } else {
-      console.log(req.file);
-      res.send('Image Uploaded');
+      const dataForRDS = req.file;
+
+      console.log(dataForRDS);
+      res.send(`${dataForRDS.originalname} Uploaded`);
     }
   });
 };
