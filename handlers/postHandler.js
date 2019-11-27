@@ -18,6 +18,7 @@ const postHandler = (req, res) => {
         templateVariables.uploadedMessage = 'Error: No Image Selected!';
       } else {
         templateVariables.uploadedMessage = `${dataForRDS.originalname} Uploaded`;
+        templateVariables.serverFile = `images/${dataForRDS.filename}`;
       }
 
       console.log(dataForRDS);
