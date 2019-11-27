@@ -13,7 +13,7 @@ const MESSAGES = {
   SERVER: 'Example app listening on port ',
 };
 
-const VIEWS ={ 
+const VIEWS = {
   INDEX: 'index',
 };
 
@@ -22,7 +22,7 @@ const ROUTES = {
   NAMED: '/:name',
   LIST: 'list',
   RANDOM: 'random',
-}
+};
 
 export {
   PUBLIC_PATH,
@@ -32,4 +32,4 @@ export {
   MESSAGES,
   VIEWS,
   ROUTES,
-}
+};

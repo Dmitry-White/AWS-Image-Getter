@@ -2,7 +2,13 @@ import express from 'express';
 import morgan from 'morgan';
 
 import { getHandler, postHandler } from './handlers/index.js';
-import { PUBLIC_PATH, VIEWS, ROUTES, MESSAGES, IMAGE_PREFIX } from './core/constants.js';
+import {
+  PUBLIC_PATH,
+  VIEWS,
+  ROUTES,
+  MESSAGES,
+  IMAGE_PREFIX,
+} from './core/constants.js';
 
 const PORT = 3000;
 

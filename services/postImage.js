@@ -1,7 +1,12 @@
 import multer from 'multer';
 import path from 'path';
 
-import { MESSAGES, IMAGE_PATH, FULL_PATH, IMAGE_PREFIX } from '../core/constants.js';
+import {
+  MESSAGES,
+  IMAGE_PATH,
+  FULL_PATH,
+  IMAGE_PREFIX,
+} from '../core/constants.js';
 
 const oneMegabyte = 1000000;
 
@@ -10,7 +15,7 @@ const getFileName = (fileName) => path.extname(fileName);
 const generateName = (req, file, cb) => {
   const inputName = getFileName(file.originalname);
   const outputName = `${file.fieldname}-${Date.now()}${inputName}`;
-  
+
   cb(null, outputName);
 };
 
@@ -36,9 +41,7 @@ const getTemplateVariables = (err, data) => {
 
   if (err) {
     templateVariables.uploadedMessage = err;
-
   } else {
-
     if (data === undefined) {
       templateVariables.uploadedMessage = MESSAGES.NOT_SELECTED;
     } else {
@@ -50,7 +53,7 @@ const getTemplateVariables = (err, data) => {
   }
 
   return templateVariables;
-}
+};
 
 const storage = multer.diskStorage({
   destination: FULL_PATH,
