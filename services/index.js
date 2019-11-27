@@ -1,6 +1,6 @@
 import getRandomImage from './getRandomImage.js';
 import getSpecificImage from './getSpecificImage.js';
-import uploadImage from './postImage.js';
+import { uploadImage, getTemplateVariables } from './postImage.js';
 import listImages from './listImages.js';
 
 export {
@@ -8,4 +8,5 @@ export {
   getSpecificImage,
   uploadImage,
   listImages,
+  getTemplateVariables,
 };

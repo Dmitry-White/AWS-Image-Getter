@@ -1,29 +1,12 @@
-import { uploadImage } from '../services/index.js';
+import { uploadImage, getTemplateVariables } from '../services/index.js';
+
+import { VIEWS } from '../core/constants.js';
 
 const postHandler = (req, res) => {
-  const templateVariables = {
-    uploadedMessage: '',
-  };
-
   uploadImage(req, res, (err) => {
-    if (err) {
-      templateVariables.uploadedMessage = err;
+    const templateVariables = getTemplateVariables(err, req.file);
 
-      console.log(templateVariables);
-      res.render('index', templateVariables);
-    } else {
-      const dataForRDS = req.file;
-
-      if (dataForRDS === undefined) {
-        templateVariables.uploadedMessage = 'Error: No Image Selected!';
-      } else {
-        templateVariables.uploadedMessage = `${dataForRDS.originalname} Uploaded`;
-        templateVariables.serverFile = `images/${dataForRDS.filename}`;
-      }
-
-      console.log(dataForRDS);
-      res.render('index', templateVariables);
-    }
+    res.render(VIEWS.INDEX, templateVariables);
   });
 };
 
