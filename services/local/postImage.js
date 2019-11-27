@@ -6,7 +6,7 @@ import {
   IMAGE_PATH,
   FULL_PATH,
   IMAGE_PREFIX,
-} from '../core/constants.js';
+} from '../../core/constants.js';
 
 const oneMegabyte = 1000000;
 

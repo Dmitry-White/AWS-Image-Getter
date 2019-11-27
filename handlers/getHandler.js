@@ -1,15 +1,17 @@
-import { getSpecificImage, getRandomImage, listImages } from '../services/index.js';
-import { FULL_PATH } from '../core/constants.js';
+import { getSpecificImage, getRandomImage, listImages } from '../services/local/index.js';
+// import { getFromS3 } from '../services/aws/index.js';
+import { FULL_PATH, ROUTES } from '../core/constants.js';
 
 const getHandler = async (req, res) => {
   const param = req.params.name;
   const config = { root: FULL_PATH };
 
-  if (param === 'random') {
+  if (param === ROUTES.RANDOM) {
     getRandomImage((image) => res.sendFile(image, config));
-  } else if (param === 'list') {
+  } else if (param === ROUTES.LIST) {
     listImages((files) => res.send(files));
   } else {
+    // getFromS3((image) => res.sendFile(image, config));
     getSpecificImage((image) => res.sendFile(image, config));
   }
 };

@@ -1,4 +1,4 @@
-import { uploadImage, getTemplateVariables } from '../services/index.js';
+import { uploadImage, getTemplateVariables } from '../services/local/index.js';
 
 import { VIEWS } from '../core/constants.js';
 

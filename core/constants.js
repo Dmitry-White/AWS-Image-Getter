@@ -1,3 +1,9 @@
+const AWS = {
+  BUCKET_NAME: '',
+  IAM_USER_KEY: '',
+  IAM_USER_SECRET: '',
+};
+
 const PUBLIC_PATH = 'public';
 const IMAGE_PATH = 'images';
 
@@ -25,6 +31,7 @@ const ROUTES = {
 };
 
 export {
+  AWS,
   PUBLIC_PATH,
   IMAGE_PATH,
   FULL_PATH,

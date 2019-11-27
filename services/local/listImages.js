@@ -1,7 +1,7 @@
 import path from 'path';
 import fs from 'fs';
 
-import { MESSAGES, FULL_PATH } from '../core/constants.js';
+import { MESSAGES, FULL_PATH } from '../../core/constants.js';
 
 const dirPath = path.join(path.resolve(), FULL_PATH);
 
