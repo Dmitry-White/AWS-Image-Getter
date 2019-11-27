@@ -15,5 +15,6 @@ app.use(express.static('public'));
 app.get('/', (req, res) => res.render('index'));
 app.get('/:name', getHandler);
 app.post('/', postHandler);
+app.get('/list', listHandler);
 
 app.listen(PORT, () => console.log(`Example app listening on port ${PORT}!`));
