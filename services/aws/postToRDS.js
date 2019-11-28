@@ -1,6 +1,8 @@
 import mysql from 'mysql';
 
 import { AWS_CREDENTIALS } from '../../core/constants.js';
+import { createTableQuery, showContentQuery } from '../../db/migrations.js';
+import { insertDummyQuery, insertQuery } from '../../db/populations.js';
 
 const postToRDS = (file) => {
   console.log(file);
@@ -20,6 +22,30 @@ const postToRDS = (file) => {
       console.log('Connection successful');
     }
   });
+
+  // connection.query(createQuery, (err, res, fields) => {
+  //   if (err) {
+  //     console.log(err);
+  //   } else {
+  //     console.log('Creation successful: ', res, fields);
+  //   }
+  // });
+
+  connection.query(insertQuery, (err, res, fields) => {
+      if (err) {
+        console.log(err);
+      } else {
+        console.log('Insertion successful: ', res);
+      }
+    })
+
+  connection.query(showContentQuery, (err, res, fields) => {
+      if (err) {
+        console.log(err);
+      } else {
+        console.log('In images table: ', res);
+      }
+    });
 
   connection.end();
 };
