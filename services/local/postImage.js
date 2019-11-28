@@ -3,7 +3,6 @@ import path from 'path';
 
 import {
   MESSAGES,
-  IMAGE_PATH,
   FULL_PATH,
   IMAGE_PREFIX,
 } from '../../core/constants.js';
@@ -49,6 +48,4 @@ const upload = multer({
 
 const uploadImage = upload.single(IMAGE_PREFIX);
 
-export {
-  uploadImage,
-};
+export default uploadImage;

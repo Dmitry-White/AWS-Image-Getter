@@ -1,7 +1,9 @@
 import { uploadImage } from '../services/local/index.js';
 import { postToS3, postToRDS } from '../services/aws/index.js';
 
-import { VIEWS } from '../core/constants.js';
+import {
+  VIEWS, IMAGE_PREFIX, MESSAGES, IMAGE_PATH,
+} from '../core/constants.js';
 
 const postHandler = (req, res) => {
   uploadImage(req, res, (err) => {
@@ -10,7 +12,7 @@ const postHandler = (req, res) => {
       uploadedMessage: '',
       IMAGE_PREFIX,
     };
-  
+
     if (err) {
       templateVariables.uploadedMessage = err;
     } else {
@@ -22,7 +24,7 @@ const postHandler = (req, res) => {
         postToS3(fileData);
         postToRDS(fileData);
       }
-  
+
       console.log(fileData);
     }
     res.render(VIEWS.INDEX, templateVariables);
