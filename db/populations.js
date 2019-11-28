@@ -49,5 +49,4 @@ VALUES ?`;
 export {
   insertDummyQuery,
   insertQuery,
-}
-
+};
