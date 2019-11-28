@@ -1,7 +1,7 @@
-const AWS = {
-  BUCKET_NAME: '',
-  IAM_USER_KEY: '',
-  IAM_USER_SECRET: '',
+const AWS_CREDENTIALS = {
+  BUCKET_NAME: process.env.BUCKET_NAME || '',
+  IAM_USER_KEY: process.env.IAM_USER_KEY || '',
+  IAM_USER_SECRET: process.env.IAM_USER_SECRET || '',
 };
 
 const PUBLIC_PATH = 'public';
@@ -31,7 +31,7 @@ const ROUTES = {
 };
 
 export {
-  AWS,
+  AWS_CREDENTIALS,
   PUBLIC_PATH,
   IMAGE_PATH,
   FULL_PATH,

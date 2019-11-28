@@ -1,11 +1,30 @@
-import { uploadImage, getTemplateVariables } from '../services/local/index.js';
+import { uploadImage } from '../services/local/index.js';
+import { postToS3, postToRDS } from '../services/aws/index.js';
 
 import { VIEWS } from '../core/constants.js';
 
 const postHandler = (req, res) => {
   uploadImage(req, res, (err) => {
-    const templateVariables = getTemplateVariables(err, req.file);
-
+    const fileData = req.file;
+    const templateVariables = {
+      uploadedMessage: '',
+      IMAGE_PREFIX,
+    };
+  
+    if (err) {
+      templateVariables.uploadedMessage = err;
+    } else {
+      if (fileData === undefined) {
+        templateVariables.uploadedMessage = MESSAGES.NOT_SELECTED;
+      } else {
+        templateVariables.uploadedMessage = MESSAGES.SUCCESS;
+        templateVariables.serverFile = `${IMAGE_PATH}/${fileData.filename}`;
+        postToS3(fileData);
+        postToRDS(fileData);
+      }
+  
+      console.log(fileData);
+    }
     res.render(VIEWS.INDEX, templateVariables);
   });
 };

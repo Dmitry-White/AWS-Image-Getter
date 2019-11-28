@@ -1,3 +1,3 @@
-const postToRDS = (cb) => cb('nodejs.png');
+const postToRDS = (data) => console.log(data);
 
 export default postToRDS;

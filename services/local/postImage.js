@@ -33,27 +33,6 @@ const checkFileType = (file, cb) => {
   return cb(MESSAGES.IMAGE_ONLY);
 };
 
-const getTemplateVariables = (err, data) => {
-  const templateVariables = {
-    uploadedMessage: '',
-    IMAGE_PREFIX,
-  };
-
-  if (err) {
-    templateVariables.uploadedMessage = err;
-  } else {
-    if (data === undefined) {
-      templateVariables.uploadedMessage = MESSAGES.NOT_SELECTED;
-    } else {
-      templateVariables.uploadedMessage = MESSAGES.SUCCESS;
-      templateVariables.serverFile = `${IMAGE_PATH}/${data.filename}`;
-    }
-
-    console.log(data);
-  }
-
-  return templateVariables;
-};
 
 const storage = multer.diskStorage({
   destination: FULL_PATH,
@@ -72,5 +51,4 @@ const uploadImage = upload.single(IMAGE_PREFIX);
 
 export {
   uploadImage,
-  getTemplateVariables,
 };
