@@ -10,12 +10,20 @@ const AWS_CREDENTIALS = {
   DB_PASSWORD: process.env.DB_PASSWORD || '',
 };
 
+const DB_PARAMS = {
+  host: AWS_CREDENTIALS.DB_HOST,
+  user: AWS_CREDENTIALS.DB_USER,
+  password: AWS_CREDENTIALS.DB_PASSWORD,
+  database: AWS_CREDENTIALS.DB_NAME,
+};
 
-const S3_BUCKET = new AWS.S3({
+const S3_PARAMS = {
   accessKeyId: AWS_CREDENTIALS.IAM_USER_KEY,
   secretAccessKey: AWS_CREDENTIALS.IAM_USER_SECRET,
   Bucket: AWS_CREDENTIALS.BUCKET_NAME,
-});
+};
+
+const S3_BUCKET = new AWS.S3(S3_PARAMS);
 
 const PUBLIC_PATH = 'public';
 const IMAGE_PATH = 'images';
@@ -53,6 +61,7 @@ const ROUTES = {
 
 export {
   AWS_CREDENTIALS,
+  DB_PARAMS,
   S3_BUCKET,
   PUBLIC_PATH,
   IMAGE_PATH,

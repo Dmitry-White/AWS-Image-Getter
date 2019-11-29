@@ -1,18 +1,11 @@
 import mysql from 'mysql';
 
-import { AWS_CREDENTIALS, MESSAGES } from '../../core/constants.js';
+import { MESSAGES, DB_PARAMS } from '../../core/constants.js';
 import { showContentQuery } from '../../db/migrations.js';
 import { insertQuery } from '../../db/populations.js';
 
 const postToRDS = (data) => {
-  const params = {
-    host: AWS_CREDENTIALS.DB_HOST,
-    user: AWS_CREDENTIALS.DB_USER,
-    password: AWS_CREDENTIALS.DB_PASSWORD,
-    database: AWS_CREDENTIALS.DB_NAME,
-  };
-
-  const connection = mysql.createConnection(params);
+  const connection = mysql.createConnection(DB_PARAMS);
 
   connection.connect((err, res) => {
     if (err) {

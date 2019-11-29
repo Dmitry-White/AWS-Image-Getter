@@ -1,16 +1,21 @@
 import {
-  AWS_CREDENTIALS, MESSAGES, S3_BUCKET, IMAGE_PATH,
+  AWS_CREDENTIALS,
+  MESSAGES,
+  S3_BUCKET,
+  IMAGE_PATH,
 } from '../../core/constants.js';
 import deleteFromRDS from './deleteFromRDS.js';
 
 const deleteImage = (params) => {
   S3_BUCKET.deleteObjects(params, (err, data) => {
-    if (err) console.log(MESSAGES.DELETE_FAIL, err);
-    else console.log(MESSAGES.DELETE_SUCCESS, data);
+    if (err) return console.log(MESSAGES.DELETE_FAIL, err);
+
+    deleteFromRDS();
+    return console.log(MESSAGES.DELETE_SUCCESS, data);
   });
 };
 
-const deleteFromS3 = (localCB) => {
+const deleteListS3 = () => {
   const paramsList = {
     Bucket: AWS_CREDENTIALS.BUCKET_NAME,
     Prefix: IMAGE_PATH,
@@ -27,13 +32,14 @@ const deleteFromS3 = (localCB) => {
         Objects,
       },
     };
-    console.log(paramsObjects);
 
     deleteImage(paramsObjects);
     return console.log('S3 List success');
   });
+};
 
-  deleteFromRDS();
+const deleteFromS3 = (localCB) => {
+  deleteListS3();
   localCB();
 };
 
