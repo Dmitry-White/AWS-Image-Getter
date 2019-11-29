@@ -23,7 +23,7 @@ const uploadToBucket = (file) => {
       console.log(MESSAGES.FAIL, err);
     } else {
       console.log(MESSAGES.SUCCESS);
-      
+
       const dataForRDS = [
         uuidv4(),
         file.fieldname,
@@ -37,7 +37,7 @@ const uploadToBucket = (file) => {
         Date.now(),
         Date.now(),
       ];
-      
+
       postToRDS(dataForRDS);
     }
   });

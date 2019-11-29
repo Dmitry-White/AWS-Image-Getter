@@ -2,7 +2,7 @@ import { getSpecificImage, getRandomImage, listImages } from '../services/local/
 // import { getFromS3 } from '../services/aws/index.js';
 import { FULL_PATH, ROUTES } from '../core/constants.js';
 
-const getHandler = async (req, res) => {
+const getHandler = (req, res) => {
   const param = req.params.name;
   const config = { root: FULL_PATH };
 

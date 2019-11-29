@@ -1,6 +1,8 @@
+import { IMAGE_PATH } from '../core/constants';
+
 const insertDummyQuery = `
 INSERT INTO
-  images (
+  ${IMAGE_PATH} (
     id,
     fieldname,
     originalname,
@@ -31,7 +33,7 @@ VALUES
 
 const insertQuery = `
 INSERT INTO
-  images (
+  ${IMAGE_PATH} (
     id,
     fieldname,
     originalname,

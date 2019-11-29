@@ -26,6 +26,7 @@ const MESSAGES = {
   IMAGE_ONLY: 'Images Only!',
   NO_LIST: 'Unable to list images!',
   SERVER: 'Example app listening on port ',
+  DELETE_SUCCESS: 'Delete Successful',
 };
 
 const VIEWS = {
@@ -37,6 +38,7 @@ const ROUTES = {
   NAMED: '/:name',
   LIST: 'list',
   RANDOM: 'random',
+  DELETE: '/delete',
 };
 
 export {

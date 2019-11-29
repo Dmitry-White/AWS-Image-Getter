@@ -1,5 +1,7 @@
+import { IMAGE_PATH } from '../core/constants';
+
 const createTableQuery = `
-  CREATE TABLE IF NOT EXISTS images (
+  CREATE TABLE IF NOT EXISTS ${IMAGE_PATH} (
     id VARCHAR(36) NOT NULL,
     fieldname VARCHAR(36) NOT NULL,
     originalname VARCHAR(255) NOT NULL,
@@ -16,10 +18,15 @@ const createTableQuery = `
 `;
 
 const showContentQuery = `
-  SELECT * FROM images;
+  SELECT * FROM ${IMAGE_PATH};
+`;
+
+const deleteContentQuery = `
+  DELETE FROM ${IMAGE_PATH};
 `;
 
 export {
   createTableQuery,
   showContentQuery,
+  deleteContentQuery,
 };

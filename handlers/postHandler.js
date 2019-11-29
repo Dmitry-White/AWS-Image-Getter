@@ -15,16 +15,12 @@ const postHandler = (req, res) => {
 
     if (err) {
       templateVariables.uploadedMessage = err;
+    } else if (fileData === undefined) {
+      templateVariables.uploadedMessage = MESSAGES.NOT_SELECTED;
     } else {
-      if (fileData === undefined) {
-        templateVariables.uploadedMessage = MESSAGES.NOT_SELECTED;
-      } else {
-        templateVariables.uploadedMessage = MESSAGES.SUCCESS;
-        templateVariables.serverFile = `${IMAGE_PATH}/${fileData.filename}`;
-        postToS3(fileData);
-      }
-
-      console.log(fileData);
+      templateVariables.uploadedMessage = MESSAGES.SUCCESS;
+      templateVariables.serverFile = `${IMAGE_PATH}/${fileData.filename}`;
+      postToS3(fileData);
     }
     res.render(VIEWS.INDEX, templateVariables);
   });

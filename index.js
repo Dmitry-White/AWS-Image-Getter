@@ -1,7 +1,7 @@
 import express from 'express';
 import morgan from 'morgan';
 
-import { getHandler, postHandler } from './handlers/index.js';
+import { getHandler, postHandler, deleteHandler } from './handlers/index.js';
 import {
   PUBLIC_PATH,
   VIEWS,
@@ -22,5 +22,6 @@ app.use(express.static(PUBLIC_PATH));
 app.get(ROUTES.HOME, (req, res) => res.render(VIEWS.INDEX, { IMAGE_PREFIX }));
 app.post(ROUTES.HOME, postHandler);
 app.get(ROUTES.NAMED, getHandler);
+app.delete(ROUTES.DELETE, deleteHandler);
 
 app.listen(PORT, () => console.log(MESSAGES.SERVER, PORT));
