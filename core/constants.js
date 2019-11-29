@@ -52,11 +52,15 @@ const VIEWS = {
 };
 
 const ROUTES = {
-  HOME: '/',
-  NAMED: '/api/',
-  LIST: '/api/list',
-  RANDOM: '/api/random',
-  DELETE: '/api/delete',
+  WEB: {
+    HOME: '/',
+    IMAGE: '/web',
+  },
+  API: {
+    LIST: '/api/list',
+    RANDOM: '/api/random',
+    DELETE: '/api/delete',
+  }
 };
 
 export {
