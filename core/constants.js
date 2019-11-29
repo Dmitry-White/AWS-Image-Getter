@@ -1,3 +1,5 @@
+import AWS from 'aws-sdk';
+
 const AWS_CREDENTIALS = {
   BUCKET_NAME: process.env.BUCKET_NAME || '',
   IAM_USER_KEY: process.env.IAM_USER_KEY || '',
@@ -7,6 +9,13 @@ const AWS_CREDENTIALS = {
   DB_USER: process.env.DB_USER || '',
   DB_PASSWORD: process.env.DB_PASSWORD || '',
 };
+
+
+const S3_BUCKET = new AWS.S3({
+  accessKeyId: AWS_CREDENTIALS.IAM_USER_KEY,
+  secretAccessKey: AWS_CREDENTIALS.IAM_USER_SECRET,
+  Bucket: AWS_CREDENTIALS.BUCKET_NAME,
+});
 
 const PUBLIC_PATH = 'public';
 const IMAGE_PATH = 'images';
@@ -44,6 +53,7 @@ const ROUTES = {
 
 export {
   AWS_CREDENTIALS,
+  S3_BUCKET,
   PUBLIC_PATH,
   IMAGE_PATH,
   FULL_PATH,
