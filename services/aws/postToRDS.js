@@ -1,11 +1,10 @@
 import mysql from 'mysql';
 
-import { AWS_CREDENTIALS } from '../../core/constants.js';
+import { AWS_CREDENTIALS, MESSAGES } from '../../core/constants.js';
 import { showContentQuery } from '../../db/migrations.js';
 import { insertQuery } from '../../db/populations.js';
 
 const postToRDS = (data) => {
-  console.log(data);
   const params = {
     host: AWS_CREDENTIALS.DB_HOST,
     user: AWS_CREDENTIALS.DB_USER,
@@ -15,35 +14,35 @@ const postToRDS = (data) => {
 
   const connection = mysql.createConnection(params);
 
-  connection.connect((err) => {
+  connection.connect((err, res) => {
     if (err) {
-      console.log(err);
+      console.log(`Connect ${MESSAGES.QUERY_FAIL}, `, err);
     } else {
-      console.log('Connection successful');
+      console.log(`Connect ${MESSAGES.QUERY_SUCCESS}, `, res);
     }
   });
 
   // connection.query(createQuery, (err, res, fields) => {
   //   if (err) {
-  //     console.log(err);
+  //     console.log(`Create ${MESSAGES.QUERY_FAIL}, `, err);
   //   } else {
-  //     console.log('Creation successful: ', res, fields);
+  //     console.log(`Create ${MESSAGES.QUERY_SUCCESS}, `, res);
   //   }
   // });
 
   connection.query(insertQuery, [[data]], (err, res) => {
     if (err) {
-      console.log(err);
+      console.log(`Insert ${MESSAGES.QUERY_FAIL}, `, err);
     } else {
-      console.log('Insertion successful: ', res);
+      console.log(`Insert ${MESSAGES.QUERY_SUCCESS}, `, res);
     }
   });
 
   connection.query(showContentQuery, (err, res) => {
     if (err) {
-      console.log(err);
+      console.log(`Content ${MESSAGES.QUERY_FAIL}, `, err);
     } else {
-      console.log('In images table: ', res);
+      console.log(`Content ${MESSAGES.QUERY_SUCCESS}, `, res);
     }
   });
 

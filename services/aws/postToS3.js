@@ -12,7 +12,6 @@ const s3Bucket = new AWS.S3({
 });
 
 const uploadToBucket = (file) => {
-  console.log(file);
   const params = {
     Bucket: AWS_CREDENTIALS.BUCKET_NAME,
     Key: file.filename,
@@ -21,26 +20,26 @@ const uploadToBucket = (file) => {
 
   s3Bucket.upload(params, (err, data) => {
     if (err) {
-      console.log(MESSAGES.FAIL);
-      console.log(err);
+      console.log(MESSAGES.FAIL, err);
+    } else {
+      console.log(MESSAGES.SUCCESS);
+      
+      const dataForRDS = [
+        uuidv4(),
+        file.fieldname,
+        file.originalname,
+        file.filename,
+        file.size,
+        file.encoding,
+        file.mimetype,
+        data.Bucket,
+        data.Location,
+        Date.now(),
+        Date.now(),
+      ];
+      
+      postToRDS(dataForRDS);
     }
-    console.log(MESSAGES.SUCCESS);
-    console.log(data);
-
-    const dataForRDS = [
-      uuidv4(),
-      file.fieldname,
-      file.originalname,
-      file.filename,
-      file.size,
-      file.encoding,
-      file.mimetype,
-      data.Bucket,
-      data.Location,
-      Date.now(),
-      Date.now(),
-    ];
-    postToRDS(dataForRDS);
   });
 };
 
