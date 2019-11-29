@@ -1,4 +1,4 @@
-import { IMAGE_PATH } from '../core/constants';
+import { IMAGE_PATH } from '../core/constants.js';
 
 const createTableQuery = `
   CREATE TABLE IF NOT EXISTS ${IMAGE_PATH} (

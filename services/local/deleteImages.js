@@ -1,8 +1,8 @@
 import { deleteFromS3 } from '../aws/index.js';
 
-const deleteImages = () => {
+const deleteImages = (cb) => {
   // delete function local
-  deleteFromS3();
+  deleteFromS3(cb);
 };
 
 export default deleteImages;

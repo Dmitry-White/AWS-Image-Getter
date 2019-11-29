@@ -1,4 +1,4 @@
-import { IMAGE_PATH } from '../core/constants';
+import { IMAGE_PATH } from '../core/constants.js';
 
 const insertDummyQuery = `
 INSERT INTO
