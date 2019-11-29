@@ -1,5 +1,5 @@
 import { uploadImage } from '../services/local/index.js';
-import { postToS3, postToRDS } from '../services/aws/index.js';
+import { postToS3 } from '../services/aws/index.js';
 
 import {
   VIEWS, IMAGE_PREFIX, MESSAGES, IMAGE_PATH,
@@ -22,7 +22,6 @@ const postHandler = (req, res) => {
         templateVariables.uploadedMessage = MESSAGES.SUCCESS;
         templateVariables.serverFile = `${IMAGE_PATH}/${fileData.filename}`;
         postToS3(fileData);
-        postToRDS(fileData);
       }
 
       console.log(fileData);

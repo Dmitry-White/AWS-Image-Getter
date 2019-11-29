@@ -4,8 +4,8 @@ import { AWS_CREDENTIALS } from '../../core/constants.js';
 import { showContentQuery } from '../../db/migrations.js';
 import { insertQuery } from '../../db/populations.js';
 
-const postToRDS = (file) => {
-  console.log(file);
+const postToRDS = (data) => {
+  console.log(data);
   const params = {
     host: AWS_CREDENTIALS.DB_HOST,
     user: AWS_CREDENTIALS.DB_USER,
@@ -31,7 +31,7 @@ const postToRDS = (file) => {
   //   }
   // });
 
-  connection.query(insertQuery, (err, res) => {
+  connection.query(insertQuery, [[data]], (err, res) => {
     if (err) {
       console.log(err);
     } else {
