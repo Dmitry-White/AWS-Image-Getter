@@ -26,7 +26,8 @@ const MESSAGES = {
   IMAGE_ONLY: 'Images Only!',
   NO_LIST: 'Unable to list images!',
   SERVER: 'Example app listening on port ',
-  DELETE_SUCCESS: 'Delete Successful',
+  DELETE_SUCCESS: 'Delete success',
+  DELETE_FAIL: 'Delelte fals',
 };
 
 const VIEWS = {

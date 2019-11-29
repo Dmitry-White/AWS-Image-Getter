@@ -11,7 +11,7 @@ const listImages = (cb) => {
       return cb(MESSAGES.NO_LIST);
     }
 
-    return cb(files);
+    return cb(files, dirPath);
   });
 };
 
