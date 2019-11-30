@@ -1,6 +1,11 @@
 import { getSpecificImage } from '../services/local/index.js';
 // import { getFromS3 } from '../services/aws/index.js';
-import { MESSAGES, IMAGE_PATH, IMAGE_PREFIX, VIEWS } from '../core/constants.js';
+import {
+  MESSAGES,
+  IMAGE_PATH,
+  IMAGE_PREFIX,
+  VIEWS,
+} from '../core/constants.js';
 
 const getHandler = (req, res) => {
   console.log(req);
