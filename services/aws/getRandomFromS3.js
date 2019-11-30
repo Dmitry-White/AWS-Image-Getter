@@ -20,6 +20,7 @@ const getRandomFromS3 = () => {
     const object = randomObject(Objects);
     const input = object.Key.replace(`${IMAGE_PATH}/`, '');
 
+    console.log('Random From S3: ');
     getFromS3(input);
   });
 }
