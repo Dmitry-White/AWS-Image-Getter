@@ -19,9 +19,10 @@ const postHandler = (req, res) => {
       templateVariables.uploadedMessage = MESSAGES.NOT_SELECTED;
     } else {
       templateVariables.uploadedMessage = MESSAGES.SUCCESS;
-      templateVariables.serverFile = `${IMAGE_PATH}/${fileData.filename}`;
+      templateVariables.serverFile = `../${IMAGE_PATH}/${fileData.filename}`;
       postToS3(fileData);
     }
+    
     res.render(VIEWS.INDEX, templateVariables);
   });
 };

@@ -53,10 +53,10 @@ const VIEWS = {
 
 const ROUTES = {
   HOME: '/',
-  NAMED: '/:name',
-  LIST: 'list',
-  RANDOM: 'random',
-  DELETE: '/delete',
+  NAMED: '/api/',
+  LIST: '/api/list',
+  RANDOM: '/api/random',
+  DELETE: '/api/delete',
 };
 
 export {

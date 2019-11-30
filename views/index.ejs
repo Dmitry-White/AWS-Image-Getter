@@ -13,18 +13,24 @@
     <h1>AWS Image Service</h1>
     <section>
       <h2>Image Download</h2>
-      <form>
+      <form action="/api/" method='GET' enctype="multipart/form-data">
         <div class="input-field">
-          <input id="image_dowload" type="text" class="validate">
+          <input id="image_dowload" name="image" type="text" class="validate">
           <label for="image_dowload">Image Name</label>
         </div>
         <button class='btn' type="submit">Download</button>
         <%= typeof downloadedMessage != 'undefined' ? downloadedMessage : '' %>
       </form>
     </section>
+
+    <section>
+      <br>
+      <img src="<%= typeof getFile != 'undefined' ? getFile : '' %>" class='img-responsive'>
+    </section>
+
     <section>
       <h2>Image Upload</h2>
-      <form action="/" method='POST' enctype="multipart/form-data">
+      <form action="/api/" method='POST' enctype="multipart/form-data">
         <div class="file-field input-field">
           <div class="btn grey">
             <span>File</span>
