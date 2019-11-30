@@ -11,11 +11,8 @@ const oneMegabyte = 1000000;
 
 const getFileName = (fileName) => path.extname(fileName);
 
-const generateName = (req, file, cb) => {
-  const inputName = getFileName(file.originalname);
-  const outputName = `${file.fieldname}-${Date.now()}${inputName}`;
-
-  cb(null, outputName);
+const generateName = (_, file, cb) => {
+  cb(null, file.originalname);
 };
 
 const checkFileType = (file, cb) => {

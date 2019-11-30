@@ -35,6 +35,7 @@ const IMAGE_PREFIX = 'uploadImage';
 const MESSAGES = {
   SUCCESS: 'Image Uploaded!',
   FAIL: 'Image was not Uploaded!',
+  DOWNLOADED: 'Image Downloaded!',
   CON_SUCCESS: 'Connection success',
   CON_FAIL: 'Connection fail',
   QUERY_SUCCESS: 'Query success',
