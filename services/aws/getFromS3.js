@@ -5,6 +5,8 @@ import {
 } from '../../core/constants.js';
 
 const getFromS3 = (input) => {
+  console.log('Key: ', input);
+
   const params = {
     Bucket: AWS_CREDENTIALS.BUCKET_NAME,
     Key: `${IMAGE_PATH}/${input}`,

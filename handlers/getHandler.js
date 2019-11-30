@@ -2,7 +2,7 @@ import { getSpecificImage, getRandomImage } from '../services/local/index.js';
 import {
   getFromS3,
   getFromRDS,
-  //getRandomFromS3,
+  getRandomFromS3,
   //getRandomFromRDS
 } from '../services/aws/index.js';
 import { VIEWS } from '../core/constants.js';
@@ -12,7 +12,7 @@ const getHandler = (req, res) => {
 
   if (input === 'random') {
     getRandomImage(res);
-    //getRandomFromS3();
+    getRandomFromS3();
     //getRandomFromRDS();
   } else {
     const templateVariables = getSpecificImage(input);
