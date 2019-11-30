@@ -64,6 +64,8 @@ const ROUTES = {
   }
 };
 
+const randomObject = (list) => list[Math.floor(Math.random() * list.length)];
+
 export {
   AWS_CREDENTIALS,
   DB_PARAMS,
@@ -75,4 +77,5 @@ export {
   MESSAGES,
   VIEWS,
   ROUTES,
+  randomObject,
 };

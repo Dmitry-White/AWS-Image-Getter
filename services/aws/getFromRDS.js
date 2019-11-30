@@ -1,7 +1,7 @@
 import mysql from 'mysql';
 
 import { MESSAGES, DB_PARAMS } from '../../core/constants.js';
-import { getQuery } from '../../db/populations.js'
+import { getQuery } from '../../db/populations.js';
 
 const getFromRDS = (input) => {
   const connection = mysql.createConnection(DB_PARAMS);

@@ -14,7 +14,7 @@ const getFromS3 = (input) => {
     if (err) return console.log('S3 Get error: ', err);
 
     const imageData = data.Body;
-    console.log(imageData)
+    console.log(imageData);
     return imageData;
   });
 };
