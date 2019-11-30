@@ -48,7 +48,13 @@ INSERT INTO
   )
 VALUES ?`;
 
+const getQuery = `
+    SELECT * FROM ${IMAGE_PATH}
+    WHERE filename = ?
+`;
+
 export {
   insertDummyQuery,
   insertQuery,
+  getQuery,
 };
