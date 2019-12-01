@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
   <title>AWS Image Serice</title>
 </head>
@@ -18,7 +19,10 @@
           <input id="image_dowload" name="image" type="text" class="validate">
           <label for="image_dowload">Image Name</label>
         </div>
-        <button class='btn' type="submit">Download</button>
+        <button class='btn' type="submit">
+          <i class="material-icons right">cloud_download</i>
+          Download
+        </button>
         <%= typeof downloadedMessage != 'undefined' ? downloadedMessage : '' %>
       </form>
     </section>
@@ -40,7 +44,10 @@
             <input class="file-path validate" type="text">
           </div>
         </div>
-        <button class='btn' type="submit">Upload</button>
+        <button class='btn' type="submit">
+          <i class="material-icons right">cloud_upload</i>
+          Upload
+        </button>
         <%= typeof uploadedMessage != 'undefined' ? uploadedMessage : '' %>
       </form>
     </section>
@@ -49,6 +56,11 @@
       <br>
       <img src="<%= typeof serverFile != 'undefined' ? serverFile : '' %>" class='responsive-img'>
     </section>
+
+    <a class="btn waves-effect waves-light darken-1" href="/web/subscription">
+      <i class="material-icons right">email</i>
+      Subscribe Here!
+    </a>
 
   </main>
 
