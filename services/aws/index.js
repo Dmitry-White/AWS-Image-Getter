@@ -5,6 +5,7 @@ import deleteFromS3 from './deleteFromS3.js';
 import getRandomFromS3 from './getRandomFromS3.js';
 import getRandomFromRDS from './getRandomFromRDS.js';
 import subscribeEmail from './subscribeEmail.js';
+import publishToSNS from './publishToSNS.js';
 
 export {
   getFromS3,
@@ -14,4 +15,5 @@ export {
   getRandomFromS3,
   getRandomFromRDS,
   subscribeEmail,
+  publishToSNS,
 };

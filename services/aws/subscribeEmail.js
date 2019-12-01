@@ -1,8 +1,6 @@
 import { AWS_CREDENTIALS, SNS } from '../../core/constants.js';
 
 const subscribeNewEmail = (input, cb) => {
-  console.log('Subscribing new email: ', input);
-
   const params = {
     Protocol: 'email',
     TopicArn: AWS_CREDENTIALS.SNS_TOPIC,
@@ -15,15 +13,30 @@ const subscribeNewEmail = (input, cb) => {
       cb(err);
     }
     else {
-      console.log('SNS data: ', data);
+      console.log('SNS subscribe: ', data);
+      cb();
+    }
+  });
+}
+
+const unsubscribeOldEmail = (id, cb) => {
+  const params = {
+    SubscriptionArn: id
+  };
+
+  SNS.unsubscribe(params, (err, data) => {
+    if (err) {
+      console.log(err);
+      cb(err);
+    }
+    else {
+      console.log('SNS unsubscribe: ', data);
       cb();
     }
   });
 }
 
 const subscribeEmail = (input, cb) => {
-  console.log('Email: ', input);
-
   const params = {
     TopicArn: AWS_CREDENTIALS.SNS_TOPIC,
   }
@@ -34,13 +47,13 @@ const subscribeEmail = (input, cb) => {
       cb(err);
     }
     else {
-      const emailList = data.Subscriptions.map(({ Endpoint }) => Endpoint);
-      const isSubscribed = emailList.includes(input);
+      const subscription = data.Subscriptions.find(res => res.Endpoint === input);
 
-      if (isSubscribed) {
-        console.log('Email already subscribed!');
-        cb();
+      if (subscription) {
+        console.log('Email already subscribed: ', input);
+        unsubscribeOldEmail(subscription.SubscriptionArn, cb);
       } else {
+        console.log('Subscribing new email: ', input);
         subscribeNewEmail(input, cb);
       }
     }
