@@ -8,6 +8,7 @@ const AWS_CREDENTIALS = {
   DB_HOST: process.env.DB_HOST || '',
   DB_USER: process.env.DB_USER || '',
   DB_PASSWORD: process.env.DB_PASSWORD || '',
+  SNS_TOPIC: process.env.SNS_TOPIC || '',
 };
 
 const DB_PARAMS = {
@@ -24,6 +25,14 @@ const S3_PARAMS = {
 };
 
 const S3_BUCKET = new AWS.S3(S3_PARAMS);
+
+const SNS_PARAMS = {
+  region: 'eu-central-1',
+  accessKeyId: AWS_CREDENTIALS.IAM_USER_KEY,
+  secretAccessKey: AWS_CREDENTIALS.IAM_USER_SECRET,
+}
+
+const SNS = new AWS.SNS(SNS_PARAMS);
 
 const PUBLIC_PATH = 'public';
 const IMAGE_PATH = 'images';
@@ -76,6 +85,7 @@ export {
   AWS_CREDENTIALS,
   DB_PARAMS,
   S3_BUCKET,
+  SNS,
   PUBLIC_PATH,
   IMAGE_PATH,
   FULL_PATH,

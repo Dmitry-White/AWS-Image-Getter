@@ -14,7 +14,6 @@ const subscribeHandler = (req, res) => {
   }
 
   subscribeEmail(input, (err) => {
-    console.log(err)
     if (err) {
       templateVariables.subscribeMessage = MESSAGES.SUBSCRIPTION_FAIL;
     } else {
