@@ -16,8 +16,8 @@
       <h2>Image Download</h2>
       <form action="/web" method='GET' enctype="multipart/form-data">
         <div class="input-field">
-          <input id="image_dowload" name="image" type="text" class="validate">
-          <label for="image_dowload">Image Name</label>
+          <input id="image_download" name="image" type="text" class="validate">
+          <label for="image_download">Image Name</label>
         </div>
         <button class='btn' type="submit">
           <i class="material-icons right">cloud_download</i>
@@ -57,7 +57,7 @@
       <img src="<%= typeof serverFile != 'undefined' ? serverFile : '' %>" class='responsive-img'>
     </section>
 
-    <a class="btn waves-effect waves-light darken-1" href="/web/subscription">
+    <a class="btn waves-effect waves-light darken-1" href="/subscription">
       <i class="material-icons right">email</i>
       Subscribe Here!
     </a>

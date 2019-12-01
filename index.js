@@ -4,12 +4,13 @@ import bodyParser from 'body-parser';
 
 import {
   homePageHandler,
+  subscriptionPageHandler,
   getHandler,
   postHandler,
   deleteHandler,
   listHandler,
   randomHandler,
-  subscriptionPageHandler,
+  subscribeHandler,
 } from './handlers/index.js';
 import {
   PUBLIC_PATH,
@@ -32,6 +33,7 @@ app.get(ROUTES.WEB.HOME, homePageHandler);
 app.get(ROUTES.WEB.IMAGE, getHandler);
 app.post(ROUTES.WEB.IMAGE, postHandler);
 app.get(ROUTES.WEB.SUBSCRIPTION, subscriptionPageHandler);
+app.get(ROUTES.WEB.SUBSCRIBE, subscribeHandler);
 
 // API Routes
 app.get(ROUTES.API.LIST, listHandler);

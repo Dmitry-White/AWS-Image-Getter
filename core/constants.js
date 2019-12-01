@@ -45,7 +45,10 @@ const MESSAGES = {
   NO_LIST: 'Unable to list images!',
   SERVER: 'Example app listening on port ',
   DELETE_SUCCESS: 'Delete success',
-  DELETE_FAIL: 'Delelte fals',
+  DELETE_FAIL: 'Delelte fail',
+  SUBSCRIPTION_FAIL: 'Subscription Update fail',
+  SUBSCRIPTION_SUCCESS: 'Subscription Update success',
+  NO_EMAIL: 'No email entered!'
 };
 
 const VIEWS = {
@@ -57,7 +60,8 @@ const ROUTES = {
   WEB: {
     HOME: '/',
     IMAGE: '/web',
-    SUBSCRIPTION: '/web/subscription',
+    SUBSCRIPTION: '/subscription',
+    SUBSCRIBE: '/web/subscription'
   },
   API: {
     LIST: '/api/list',
