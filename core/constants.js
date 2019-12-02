@@ -30,7 +30,7 @@ const SNS_PARAMS = {
   region: 'eu-central-1',
   accessKeyId: AWS_CREDENTIALS.IAM_USER_KEY,
   secretAccessKey: AWS_CREDENTIALS.IAM_USER_SECRET,
-}
+};
 
 const PUBLIC_PATH = 'public';
 const IMAGE_PATH = 'images';
@@ -58,12 +58,12 @@ const MESSAGES = {
   NO_EMAIL: 'No email entered!',
   BUCKET_CREATED: 'Bucket created, proceeding...',
   BUCKET_EXISTS: 'Bucket exists, proceeding...',
-  NO_BUCKET: 'Bucket does not exist, creating...'
+  NO_BUCKET: 'Bucket does not exist, creating...',
 };
 
 const VIEWS = {
   INDEX: 'index',
-  SUBSCRIPTION: 'subscription'
+  SUBSCRIPTION: 'subscription',
 };
 
 const ROUTES = {
@@ -71,13 +71,13 @@ const ROUTES = {
     HOME: '/',
     IMAGE: '/web',
     SUBSCRIPTION: '/subscription',
-    SUBSCRIBE: '/web/subscription'
+    SUBSCRIBE: '/web/subscription',
   },
   API: {
     LIST: '/api/list',
     RANDOM: '/api/random',
     DELETE: '/api/delete',
-  }
+  },
 };
 
 const S3_BUCKET = new AWS.S3(S3_PARAMS);

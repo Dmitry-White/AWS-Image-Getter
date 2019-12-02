@@ -1,5 +1,5 @@
 import { subscribeEmail } from '../services/aws/index.js';
-import { MESSAGES, VIEWS } from '../core/constants.js'
+import { MESSAGES, VIEWS } from '../core/constants.js';
 
 const subscribeHandler = (req, res) => {
   const input = req.query.email;

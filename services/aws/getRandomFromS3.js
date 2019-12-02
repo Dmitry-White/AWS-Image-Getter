@@ -4,7 +4,7 @@ import {
   IMAGE_PATH,
   randomObject,
 } from '../../core/constants.js';
-import getFromS3 from './getFromS3.js'
+import getFromS3 from './getFromS3.js';
 
 const getRandomFromS3 = () => {
   const paramsList = {
@@ -23,6 +23,6 @@ const getRandomFromS3 = () => {
     console.log('Random From S3: ');
     getFromS3(input);
   });
-}
+};
 
 export default getRandomFromS3;

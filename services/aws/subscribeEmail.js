@@ -11,43 +11,40 @@ const subscribeNewEmail = (input, cb) => {
     if (err) {
       console.log(err);
       cb(err);
-    }
-    else {
+    } else {
       console.log('SNS subscribe: ', data);
       cb();
     }
   });
-}
+};
 
 const unsubscribeOldEmail = (id, cb) => {
   const params = {
-    SubscriptionArn: id
+    SubscriptionArn: id,
   };
 
   SNS.unsubscribe(params, (err, data) => {
     if (err) {
       console.log(err);
       cb(err);
-    }
-    else {
+    } else {
       console.log('SNS unsubscribe: ', data);
       cb();
     }
   });
-}
+};
 
 const subscribeEmail = (input, cb) => {
   const params = {
     TopicArn: AWS_CREDENTIALS.SNS_TOPIC,
-  }
+  };
 
   SNS.listSubscriptionsByTopic(params, (err, data) => {
     if (err) {
       console.log(err);
       cb(err);
-    }
-    else {
-      const subscription = data.Subscriptions.find(res => res.Endpoint === input);
+    } else {
+      const subscription = data.Subscriptions.find((res) => res.Endpoint === input);
 
       if (subscription) {
         console.log('Email already subscribed: ', input);
@@ -58,6 +55,6 @@ const subscribeEmail = (input, cb) => {
       }
     }
   });
-}
+};
 
 export default subscribeEmail;

@@ -7,7 +7,7 @@ const selectRandom = (files, res) => {
   const templateVariables = getSpecificImage(file);
 
   res.render(VIEWS.INDEX, templateVariables);
-}
+};
 
 const getRandomImage = (res) => {
   listImages((files) => selectRandom(files, res));

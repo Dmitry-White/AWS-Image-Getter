@@ -3,7 +3,7 @@ import {
   getFromS3,
   getFromRDS,
   getRandomFromS3,
-  getRandomFromRDS
+  getRandomFromRDS,
 } from '../services/aws/index.js';
 import { VIEWS } from '../core/constants.js';
 

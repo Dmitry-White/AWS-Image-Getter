@@ -5,7 +5,7 @@ import {
   AWS_CREDENTIALS, MESSAGES, S3_BUCKET, IMAGE_PATH,
 } from '../../core/constants.js';
 import postToRDS from './postToRDS.js';
-import publishToSNS from './publishToSNS.js'
+import publishToSNS from './publishToSNS.js';
 
 const uploadToBucket = (file) => {
   const params = {
