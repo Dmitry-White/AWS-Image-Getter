@@ -1,4 +1,5 @@
 import AWS from 'aws-sdk';
+import https from 'https';
 
 const AWS_CREDENTIALS = {
   BUCKET_NAME: process.env.BUCKET_NAME || '',
@@ -9,6 +10,7 @@ const AWS_CREDENTIALS = {
   DB_USER: process.env.DB_USER || '',
   DB_PASSWORD: process.env.DB_PASSWORD || '',
   SNS_TOPIC: process.env.SNS_TOPIC || '',
+  CREATE_BUCKET_API: process.env.CREATE_BUCKET_API || '',
 };
 
 const DB_PARAMS = {
@@ -24,15 +26,11 @@ const S3_PARAMS = {
   Bucket: AWS_CREDENTIALS.BUCKET_NAME,
 };
 
-const S3_BUCKET = new AWS.S3(S3_PARAMS);
-
 const SNS_PARAMS = {
   region: 'eu-central-1',
   accessKeyId: AWS_CREDENTIALS.IAM_USER_KEY,
   secretAccessKey: AWS_CREDENTIALS.IAM_USER_SECRET,
 }
-
-const SNS = new AWS.SNS(SNS_PARAMS);
 
 const PUBLIC_PATH = 'public';
 const IMAGE_PATH = 'images';
@@ -57,7 +55,10 @@ const MESSAGES = {
   DELETE_FAIL: 'Delelte fail',
   SUBSCRIPTION_FAIL: 'Subscription Update fail',
   SUBSCRIPTION_SUCCESS: 'Subscription Update success',
-  NO_EMAIL: 'No email entered!'
+  NO_EMAIL: 'No email entered!',
+  BUCKET_CREATED: 'Bucket created, proceeding...',
+  BUCKET_EXISTS: 'Bucket exists, proceeding...',
+  NO_BUCKET: 'Bucket does not exist, creating...'
 };
 
 const VIEWS = {
@@ -79,7 +80,25 @@ const ROUTES = {
   }
 };
 
+const S3_BUCKET = new AWS.S3(S3_PARAMS);
+const SNS = new AWS.SNS(SNS_PARAMS);
+
 const randomObject = (list) => list[Math.floor(Math.random() * list.length)];
+
+S3_BUCKET.headBucket({ Bucket: S3_PARAMS.Bucket }, (err) => {
+  const { CREATE_BUCKET_API } = AWS_CREDENTIALS;
+  const { Bucket } = S3_PARAMS;
+  if (err) {
+    console.log('Bucket does not exist, creating...');
+    https.get(`${CREATE_BUCKET_API}?bucketName=${Bucket}`, (res) => {
+      console.log('Bucket created, proceeding...');
+    }).on('error', (e) => {
+      console.error(e);
+    });
+  } else {
+    console.log('Bucket exists, proceeding...');
+  }
+});
 
 export {
   AWS_CREDENTIALS,
