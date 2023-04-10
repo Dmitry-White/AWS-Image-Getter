@@ -20,7 +20,7 @@
   },
   "homepage": "https://github.com/Dmitry-White/AWS-Image-Getter#readme",
   "dependencies": {
-    "aws-sdk": "^2.814.0",
+    "aws-sdk": "^2.1354.0",
     "body-parser": "^1.20.1",
     "cross-env": "^6.0.3",
     "ejs": "^3.1.7",
